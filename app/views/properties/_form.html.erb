@@ -1,0 +1,64 @@
+<%= form_with(model: property, local: true) do |form| %>
+
+    <%= render "layouts/validation", item: @property %>
+
+  <div class="form-group">
+    <%= form.label :nama %>
+    <%= form.text_field :nama, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :tipe %>
+    <%= form.number_field :tipe, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :unit %>
+    <%= form.number_field :unit, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :sold %>
+    <%= form.number_field :sold, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :price %>
+    <%= form.number_field :price, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rooms %>
+    <%= form.number_field :rooms, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :bathrooms %>
+    <%= form.number_field :bathrooms, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :parking %>
+    <%= form.number_field :parking, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :photo %>
+    <%= form.file_field :photo, class: "form-control" %>
+    <%= form.hidden_field :photo_cache %>
+ 
+
+  <% if @property.photo.present? %>
+    <%= image_tag @property.photo.thumb.url, class: "mt-4" %>
+    <% end %>
+ </div>
+
+  <div class="actions">
+    <%= form.submit "save property", class: "btn btn-success" %>
+  </div>
+<% end %>
